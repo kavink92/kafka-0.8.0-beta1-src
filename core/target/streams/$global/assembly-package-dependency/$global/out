@@ -1,9 +1,0 @@
-[0m[[33mwarn[0m] [0mMerging 'META-INF/NOTICE' with strategy 'rename'[0m
-[0m[[33mwarn[0m] [0mMerging 'org/xerial/snappy/native/README' with strategy 'rename'[0m
-[0m[[33mwarn[0m] [0mMerging 'META-INF/maven/org.xerial.snappy/snappy-java/LICENSE' with strategy 'rename'[0m
-[0m[[33mwarn[0m] [0mMerging 'LICENSE.txt' with strategy 'rename'[0m
-[0m[[33mwarn[0m] [0mMerging 'META-INF/LICENSE' with strategy 'rename'[0m
-[0m[[33mwarn[0m] [0mMerging 'META-INF/MANIFEST.MF' with strategy 'discard'[0m
-[0m[[33mwarn[0m] [0mStrategy 'discard' was applied to a file[0m
-[0m[[33mwarn[0m] [0mStrategy 'rename' was applied to 5 files[0m
-[0m[[0mdebug[0m] [0mJar uptodate: /home/kavin/Downloads/kafka-0.8.0-beta1-src/core/target/scala-2.8.0/kafka-assembly-0.8.0-beta1-deps.jar[0m

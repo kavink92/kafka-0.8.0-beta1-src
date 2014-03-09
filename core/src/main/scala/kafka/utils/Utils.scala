@@ -276,10 +276,7 @@ object Utils extends Logging {
           mbs.unregisterMBean(objName)
         mbs.registerMBean(mbean, objName)
         true
-       
       }
-      
-      true
     } catch {
       case e: Exception => {
         error("Failed to register Mbean " + name, e)
@@ -293,13 +290,12 @@ object Utils extends Logging {
    * @param name The mbean name to unregister
    */
   def unregisterMBean(name: String) {
-    val mbs = ManagementFactory.getPlatformMBeanServer() 
+    val mbs = ManagementFactory.getPlatformMBeanServer()
     mbs synchronized {
       val objName = new ObjectName(name)
       if(mbs.isRegistered(objName))
         mbs.unregisterMBean(objName)
     }
-    
   }
   
   /**

@@ -1,7 +1,0 @@
-[0m[[0mdebug[0m] [0mOther repositories:[0m
-[0m[[0mdebug[0m] [0m	Apache Maven Repo: https://repository.apache.org/service/local/staging/deploy/maven2[0m
-[0m[[0mdebug[0m] [0mDefault repositories:[0m
-[0m[[0mdebug[0m] [0m	Raw(ProjectResolver(inter-project, mapped: org.apache.kafka#kafka_2.8.0;0.8.0-beta1))[0m
-[0m[[0mdebug[0m] [0m	FileRepository(local,FileConfiguration(true,None),sbt.Patterns@39b0196a)[0m
-[0m[[0mdebug[0m] [0m	public: http://repo1.maven.org/maven2/[0m
-[0m[[0mdebug[0m] [0mUsing inline dependencies specified in Scala and XML.[0m
