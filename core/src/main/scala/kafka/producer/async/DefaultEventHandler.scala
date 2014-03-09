@@ -46,8 +46,8 @@ class DefaultEventHandler[K,V](config: ProducerConfig,
   private var lastTopicMetadataRefreshTime = 0L
   private val topicMetadataToRefresh = Set.empty[String]
 
-  private val producerStats = ProducerStatsRegistry.getProducerStats(config.clientId)
-  private val producerTopicStats = ProducerTopicStatsRegistry.getProducerTopicStats(config.clientId)
+  // private val producerStats = ProducerStatsRegistry.getProducerStats(config.clientId)
+  // private val producerTopicStats = ProducerTopicStatsRegistry.getProducerTopicStats(config.clientId)
 
   def handle(events: Seq[KeyedMessage[K,V]]) {
     lock synchronized {
@@ -55,8 +55,8 @@ class DefaultEventHandler[K,V](config: ProducerConfig,
       serializedData.foreach {
         keyed =>
           val dataSize = keyed.message.payloadSize
-          producerTopicStats.getProducerTopicStats(keyed.topic).byteRate.mark(dataSize)
-          producerTopicStats.getProducerAllTopicsStats.byteRate.mark(dataSize)
+          // producerTopicStats.getProducerTopicStats(keyed.topic).byteRate.mark(dataSize)
+          // producerTopicStats.getProducerAllTopicsStats.byteRate.mark(dataSize)
       }
       var outstandingProduceRequests = serializedData
       var remainingRetries = config.messageSendMaxRetries + 1
@@ -78,11 +78,11 @@ class DefaultEventHandler[K,V](config: ProducerConfig,
           // get topics of the outstanding produce requests and refresh metadata for those
           Utils.swallowError(brokerPartitionInfo.updateInfo(outstandingProduceRequests.map(_.topic).toSet, correlationId.getAndIncrement))
           remainingRetries -= 1
-          producerStats.resendRate.mark()
+          // producerStats.resendRate.mark()
         }
       }
       if(outstandingProduceRequests.size > 0) {
-        producerStats.failedSendRate.mark()
+        // producerStats.failedSendRate.mark()
         val correlationIdEnd = correlationId.get()
         error("Failed to send requests for topics %s with correlation ids in [%d,%d]"
           .format(outstandingProduceRequests.map(_.topic).toSet.mkString(","),
@@ -131,7 +131,7 @@ class DefaultEventHandler[K,V](config: ProducerConfig,
           serializedMessages += KeyedMessage[K,Message](topic = e.topic, key = null.asInstanceOf[K], message = new Message(bytes = encoder.toBytes(e.message)))
       } catch {
         case t =>
-          producerStats.serializationErrorRate.mark()
+          // producerStats.serializationErrorRate.mark()
           if (isSync) {
             throw t
           } else {
