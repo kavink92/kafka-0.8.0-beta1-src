@@ -49,7 +49,7 @@ class Producer[K,V](val config: ProducerConfig,
       producerSendThread.start()
   }
 
-  private val producerTopicStats = ProducerTopicStatsRegistry.getProducerTopicStats(config.clientId)
+  // private val producerTopicStats = ProducerTopicStatsRegistry.getProducerTopicStats(config.clientId)
 
   KafkaMetricsReporter.startReporters(config.props)
 
@@ -78,8 +78,8 @@ class Producer[K,V](val config: ProducerConfig,
 
   private def recordStats(messages: Seq[KeyedMessage[K,V]]) {
     for (message <- messages) {
-      producerTopicStats.getProducerTopicStats(message.topic).messageRate.mark()
-      producerTopicStats.getProducerAllTopicsStats.messageRate.mark()
+      // producerTopicStats.getProducerTopicStats(message.topic).messageRate.mark()
+      // producerTopicStats.getProducerAllTopicsStats.messageRate.mark()
     }
   }
 
@@ -104,8 +104,8 @@ class Producer[K,V](val config: ProducerConfig,
           }
       }
       if(!added) {
-        producerTopicStats.getProducerTopicStats(message.topic).droppedMessageRate.mark()
-        producerTopicStats.getProducerAllTopicsStats.droppedMessageRate.mark()
+        // producerTopicStats.getProducerTopicStats(message.topic).droppedMessageRate.mark()
+        // producerTopicStats.getProducerAllTopicsStats.droppedMessageRate.mark()
         throw new QueueFullException("Event queue is full of unsent messages, could not send event: " + message.toString)
       }else {
         trace("Added to send queue an event: " + message.toString)
