@@ -1,0 +1,23 @@
+[0m[[0minfo[0m] [0mPackaging /home/kavin/Downloads/kafka-0.8.0-beta1-src/examples/target/kafka-java-examples-0.8.0-beta1.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	kafka/examples[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/examples/target/classes/kafka/examples[0m
+[0m[[0mdebug[0m] [0m	kafka/examples/SimpleConsumerDemo.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/examples/target/classes/kafka/examples/SimpleConsumerDemo.class[0m
+[0m[[0mdebug[0m] [0m	kafka/examples/SimpleConsumerDemo$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/examples/target/classes/kafka/examples/SimpleConsumerDemo$1.class[0m
+[0m[[0mdebug[0m] [0m	kafka/examples/KafkaConsumerProducerDemo.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/examples/target/classes/kafka/examples/KafkaConsumerProducerDemo.class[0m
+[0m[[0mdebug[0m] [0m	kafka/examples/SimpleConsumerDemo$1$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/examples/target/classes/kafka/examples/SimpleConsumerDemo$1$1.class[0m
+[0m[[0mdebug[0m] [0m	kafka/examples/Producer.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/examples/target/classes/kafka/examples/Producer.class[0m
+[0m[[0mdebug[0m] [0m	kafka/examples/Consumer.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/examples/target/classes/kafka/examples/Consumer.class[0m
+[0m[[0mdebug[0m] [0m	kafka[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/examples/target/classes/kafka[0m
+[0m[[0mdebug[0m] [0m	kafka/examples/KafkaProperties.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/examples/target/classes/kafka/examples/KafkaProperties.class[0m
+[0m[[0mdebug[0m] [0m	kafka/examples/SimpleConsumerDemo$1$2.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/examples/target/classes/kafka/examples/SimpleConsumerDemo$1$2.class[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m

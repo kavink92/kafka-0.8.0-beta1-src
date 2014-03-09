@@ -1,0 +1,11 @@
+[0m[[0minfo[0m] [0mIncluding zkclient-0.3.jar[0m
+[0m[[0minfo[0m] [0mIncluding zookeeper-3.3.4.jar[0m
+[0m[[0minfo[0m] [0mIncluding metrics-core-2.2.0.jar[0m
+[0m[[0minfo[0m] [0mIncluding metrics-annotation-2.2.0.jar[0m
+[0m[[0minfo[0m] [0mIncluding log4j-1.2.15.jar[0m
+[0m[[0minfo[0m] [0mIncluding jopt-simple-3.2.jar[0m
+[0m[[0minfo[0m] [0mIncluding snappy-java-1.0.4.1.jar[0m
+[0m[[0minfo[0m] [0mIncluding slf4j-api-1.7.2.jar[0m
+[0m[[0minfo[0m] [0mIncluding slf4j-simple-1.6.4.jar[0m
+[0m[[0minfo[0m] [0mIncluding scala-compiler.jar[0m
+[0m[[0minfo[0m] [0mIncluding scala-library.jar[0m

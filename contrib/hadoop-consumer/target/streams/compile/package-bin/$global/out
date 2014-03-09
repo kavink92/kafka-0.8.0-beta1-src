@@ -1,0 +1,37 @@
+[0m[[0minfo[0m] [0mPackaging /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/hadoop-consumer-0.8.0-beta1.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/Props.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/Props.class[0m
+[0m[[0mdebug[0m] [0m	kafka[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/KafkaETLInputFormat.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/KafkaETLInputFormat.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/KafkaETLUtils$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/KafkaETLUtils$1.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/KafkaETLJob.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/KafkaETLJob.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/KafkaETLContext.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/KafkaETLContext.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/KafkaETLRequest.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/KafkaETLRequest.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/impl/DataGenerator.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/impl/DataGenerator.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/UndefinedPropertyException.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/UndefinedPropertyException.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/impl/SimpleKafkaETLMapper.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/impl/SimpleKafkaETLMapper.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/KafkaETLRecordReader.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/KafkaETLRecordReader.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/impl[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/impl[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/impl/SimpleKafkaETLJob.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/impl/SimpleKafkaETLJob.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/KafkaETLContext$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/KafkaETLContext$1.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/KafkaETLKey.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/KafkaETLKey.class[0m
+[0m[[0mdebug[0m] [0m	kafka/etl/KafkaETLUtils.class[0m
+[0m[[0mdebug[0m] [0m	  /home/kavin/Downloads/kafka-0.8.0-beta1-src/contrib/hadoop-consumer/target/classes/kafka/etl/KafkaETLUtils.class[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m
