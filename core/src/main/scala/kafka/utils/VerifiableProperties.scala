@@ -20,7 +20,7 @@ package kafka.utils
 import java.util.Properties
 import scala.collection._
 
-class VerifiableProperties(val props: Properties) extends Logging {
+class VerifiableProperties(val props: Properties) {
   private val referenceSet = mutable.HashSet[String]()
   
   def this() = this(new Properties)
@@ -177,14 +177,14 @@ class VerifiableProperties(val props: Properties) extends Logging {
   }
 
   def verify() {
-    info("Verifying properties")
+    // info("Verifying properties")
     val specifiedProperties = props.propertyNames()
     while (specifiedProperties.hasMoreElements) {
       val key = specifiedProperties.nextElement().asInstanceOf[String]
-      if (!referenceSet.contains(key))
+     /* if (!referenceSet.contains(key))
         warn("Property %s is not valid".format(key))
       else
-        info("Property %s is overridden to %s".format(key, props.getProperty(key)))
+        info("Property %s is overridden to %s".format(key, props.getProperty(key))) */
     }
   }
   
