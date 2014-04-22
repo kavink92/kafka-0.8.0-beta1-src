@@ -30,7 +30,7 @@ abstract class AbstractFetcherManager(protected val name: String, metricPrefix: 
   private val mapLock = new Object
   this.logIdent = "[" + name + "] "
 
-  newGauge(
+ /* newGauge(
     metricPrefix + "-MaxLag",
     new Gauge[Long] {
       // current max lag across all fetchers/topics/partitions
@@ -40,24 +40,24 @@ abstract class AbstractFetcherManager(protected val name: String, metricPrefix: 
         }).max(curMaxAll)
       })
     }
-  )
+  ) */
 
-  newGauge(
+ /* newGauge(
     metricPrefix + "-MinFetchRate",
     {
       new Gauge[Double] {
         // current min fetch rate across all fetchers/topics/partitions
-        def value = {
-          val headRate: Double =
-            fetcherThreadMap.headOption.map(_._2.fetcherStats.requestRate.oneMinuteRate).getOrElse(0)
+        //def value = {
+          //val headRate: Double =
+           // fetcherThreadMap.headOption.map(_._2.fetcherStats.requestRate.oneMinuteRate).getOrElse(0)
 
-          fetcherThreadMap.foldLeft(headRate)((curMinAll, fetcherThreadMapEntry) => {
-            fetcherThreadMapEntry._2.fetcherStats.requestRate.oneMinuteRate.min(curMinAll)
-          })
-        }
+          //fetcherThreadMap.foldLeft(headRate)((curMinAll, fetcherThreadMapEntry) => {
+          //  fetcherThreadMapEntry._2.fetcherStats.requestRate.oneMinuteRate.min(curMinAll)
+          //})
+        // }
       }
     }
-  )
+  ) */
 
   private def getFetcherId(topic: String, partitionId: Int) : Int = {
     (topic.hashCode() + 31 * partitionId) % numFetchers

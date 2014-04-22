@@ -95,12 +95,12 @@ class KafkaController(val config : KafkaConfig, zkClient: ZkClient) extends Logg
   private val brokerRequestBatch = new ControllerBrokerRequestBatch(controllerContext, sendRequest, this.config.brokerId, this.clientId)
   registerControllerChangedListener()
 
-  newGauge(
+  /*newGauge(
     "ActiveControllerCount",
     new Gauge[Int] {
       def value() = if (isActive) 1 else 0
     }
-  )
+  ) 
 
   newGauge(
     "OfflinePartitionsCount",
@@ -111,7 +111,7 @@ class KafkaController(val config : KafkaConfig, zkClient: ZkClient) extends Logg
         }
       }
     }
-  )
+  ) */
 
   def epoch = controllerContext.epoch
 
@@ -984,6 +984,6 @@ case class LeaderIsrAndControllerEpoch(val leaderAndIsr: LeaderAndIsr, controlle
 }
 
 object ControllerStats extends KafkaMetricsGroup {
-  val uncleanLeaderElectionRate = newMeter("UncleanLeaderElectionsPerSec", "elections", TimeUnit.SECONDS)
-  val leaderElectionTimer = new KafkaTimer(newTimer("LeaderElectionRateAndTimeMs", TimeUnit.MILLISECONDS, TimeUnit.SECONDS))
+  // val uncleanLeaderElectionRate = newMeter("UncleanLeaderElectionsPerSec", "elections", TimeUnit.SECONDS)
+  // val leaderElectionTimer = new KafkaTimer(newTimer("LeaderElectionRateAndTimeMs", TimeUnit.MILLISECONDS, TimeUnit.SECONDS))
 }

@@ -24,8 +24,8 @@ import kafka.common.ClientIdAndTopic
 
 @threadsafe
 class ConsumerTopicMetrics(metricId: ClientIdAndTopic) extends KafkaMetricsGroup {
-  val messageRate = newMeter(metricId + "MessagesPerSec",  "messages", TimeUnit.SECONDS)
-  val byteRate = newMeter(metricId + "BytesPerSec",  "bytes", TimeUnit.SECONDS)
+  // val messageRate = newMeter(metricId + "MessagesPerSec",  "messages", TimeUnit.SECONDS)
+  // val byteRate = newMeter(metricId + "BytesPerSec",  "bytes", TimeUnit.SECONDS)
 }
 
 /**

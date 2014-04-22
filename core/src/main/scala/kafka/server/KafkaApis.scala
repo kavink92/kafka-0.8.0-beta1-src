@@ -226,8 +226,8 @@ class KafkaApis(val requestChannel: RequestChannel,
     val partitionAndData: Map[TopicAndPartition, MessageSet] = producerRequest.data
     trace("Append [%s] to local log ".format(partitionAndData.toString))
     partitionAndData.map {case (topicAndPartition, messages) =>
-      BrokerTopicStats.getBrokerTopicStats(topicAndPartition.topic).bytesInRate.mark(messages.sizeInBytes)
-      BrokerTopicStats.getBrokerAllTopicsStats.bytesInRate.mark(messages.sizeInBytes)
+      // BrokerTopicStats.getBrokerTopicStats(topicAndPartition.topic).bytesInRate.mark(messages.sizeInBytes)
+      // BrokerTopicStats.getBrokerAllTopicsStats.bytesInRate.mark(messages.sizeInBytes)
 
       try {
         val partitionOpt = replicaManager.getPartition(topicAndPartition.topic, topicAndPartition.partition)
@@ -258,8 +258,8 @@ class KafkaApis(val requestChannel: RequestChannel,
                producerRequest.correlationId, producerRequest.clientId, topicAndPartition, nle.getMessage))
           new ProduceResult(topicAndPartition, nle)
         case e =>
-          BrokerTopicStats.getBrokerTopicStats(topicAndPartition.topic).failedProduceRequestRate.mark()
-          BrokerTopicStats.getBrokerAllTopicsStats.failedProduceRequestRate.mark()
+          // BrokerTopicStats.getBrokerTopicStats(topicAndPartition.topic).failedProduceRequestRate.mark()
+          // BrokerTopicStats.getBrokerAllTopicsStats.failedProduceRequestRate.mark()
           error("Error processing ProducerRequest with correlation id %d from client %s on partition %s"
             .format(producerRequest.correlationId, producerRequest.clientId, topicAndPartition), e)
           new ProduceResult(topicAndPartition, e)
@@ -325,8 +325,8 @@ class KafkaApis(val requestChannel: RequestChannel,
         val partitionData =
           try {
             val (messages, highWatermark) = readMessageSet(topic, partition, offset, fetchSize, fetchRequest.replicaId)
-            BrokerTopicStats.getBrokerTopicStats(topic).bytesOutRate.mark(messages.sizeInBytes)
-            BrokerTopicStats.getBrokerAllTopicsStats.bytesOutRate.mark(messages.sizeInBytes)
+            // BrokerTopicStats.getBrokerTopicStats(topic).bytesOutRate.mark(messages.sizeInBytes)
+            // BrokerTopicStats.getBrokerAllTopicsStats.bytesOutRate.mark(messages.sizeInBytes)
             if (!isFetchFromFollower) {
               new FetchResponsePartitionData(ErrorMapping.NoError, highWatermark, messages)
             } else {
@@ -347,8 +347,8 @@ class KafkaApis(val requestChannel: RequestChannel,
                 fetchRequest.correlationId, fetchRequest.clientId, topic, partition, nle.getMessage))
               new FetchResponsePartitionData(ErrorMapping.codeFor(nle.getClass.asInstanceOf[Class[Throwable]]), -1L, MessageSet.Empty)
             case t =>
-              BrokerTopicStats.getBrokerTopicStats(topic).failedFetchRequestRate.mark()
-              BrokerTopicStats.getBrokerAllTopicsStats.failedFetchRequestRate.mark()
+              // BrokerTopicStats.getBrokerTopicStats(topic).failedFetchRequestRate.mark()
+              // BrokerTopicStats.getBrokerAllTopicsStats.failedFetchRequestRate.mark()
               error("Error when processing fetch request for partition [%s,%d] offset %d from %s with correlation id %d"
                     .format(topic, partition, offset, if (isFetchFromFollower) "follower" else "consumer", fetchRequest.correlationId),
                     t)
@@ -711,14 +711,14 @@ class KafkaApis(val requestChannel: RequestChannel,
 
   private class DelayedRequestMetrics {
     private class DelayedProducerRequestMetrics(keyLabel: String = MetricKey.globalLabel) extends KafkaMetricsGroup {
-      val expiredRequestMeter = newMeter(keyLabel + "ExpiresPerSecond", "requests", TimeUnit.SECONDS)
+      // val expiredRequestMeter = newMeter(keyLabel + "ExpiresPerSecond", "requests", TimeUnit.SECONDS)
     }
 
 
     private class DelayedFetchRequestMetrics(forFollower: Boolean) extends KafkaMetricsGroup {
       private val metricPrefix = if (forFollower) "Follower" else "Consumer"
 
-      val expiredRequestMeter = newMeter(metricPrefix + "ExpiresPerSecond", "requests", TimeUnit.SECONDS)
+      // val expiredRequestMeter = newMeter(metricPrefix + "ExpiresPerSecond", "requests", TimeUnit.SECONDS)
     }
 
     private val producerRequestMetricsForKey = {
@@ -733,14 +733,14 @@ class KafkaApis(val requestChannel: RequestChannel,
 
     def recordDelayedProducerKeyExpired(key: MetricKey) {
       val keyMetrics = producerRequestMetricsForKey.getAndMaybePut(key)
-      List(keyMetrics, aggregateProduceRequestMetrics).foreach(_.expiredRequestMeter.mark())
+      // List(keyMetrics, aggregateProduceRequestMetrics).foreach(_.expiredRequestMeter.mark())
     }
 
     def recordDelayedFetchExpired(forFollower: Boolean) {
       val metrics = if (forFollower) aggregateFollowerFetchRequestMetrics
         else aggregateNonFollowerFetchRequestMetrics
       
-      metrics.expiredRequestMeter.mark()
+     //  metrics.expiredRequestMeter.mark()
     }
   }
 }

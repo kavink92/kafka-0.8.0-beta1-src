@@ -91,17 +91,17 @@ class SyncProducer(val config: SyncProducerConfig) extends Logging {
    */
   def send(producerRequest: ProducerRequest): ProducerResponse = {
     val requestSize = producerRequest.sizeInBytes
-    producerRequestStats.getProducerRequestStats(brokerInfo).requestSizeHist.update(requestSize)
-    producerRequestStats.getProducerRequestAllBrokersStats.requestSizeHist.update(requestSize)
+    // producerRequestStats.getProducerRequestStats(brokerInfo).requestSizeHist.update(requestSize)
+    // producerRequestStats.getProducerRequestAllBrokersStats.requestSizeHist.update(requestSize)
 
     var response: Receive = null
-    val specificTimer = producerRequestStats.getProducerRequestStats(brokerInfo).requestTimer
-    val aggregateTimer = producerRequestStats.getProducerRequestAllBrokersStats.requestTimer
-    aggregateTimer.time {
-      specificTimer.time {
+    // val specificTimer = producerRequestStats.getProducerRequestStats(brokerInfo).requestTimer
+    // val aggregateTimer = producerRequestStats.getProducerRequestAllBrokersStats.requestTimer
+    //aggregateTimer.time {
+      //specificTimer.time {
         response = doSend(producerRequest, if(producerRequest.requiredAcks == 0) false else true)
-      }
-    }
+      //}
+    //}
     if(producerRequest.requiredAcks != 0)
       ProducerResponse.readFrom(response.buffer)
     else

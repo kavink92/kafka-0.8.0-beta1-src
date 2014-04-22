@@ -55,7 +55,7 @@ class ReplicaManager(val config: KafkaConfig,
   this.logIdent = "[Replica Manager on Broker " + localBrokerId + "]: "
   val stateChangeLogger = Logger.getLogger(KafkaController.stateChangeLogger)
 
-  newGauge(
+  /*newGauge(
     "LeaderCount",
     new Gauge[Int] {
       def value = {
@@ -80,9 +80,9 @@ class ReplicaManager(val config: KafkaConfig,
         }
       }
     }
-  )
-  val isrExpandRate = newMeter("IsrExpandsPerSec",  "expands", TimeUnit.SECONDS)
-  val isrShrinkRate = newMeter("ISRShrinksPerSec",  "shrinks", TimeUnit.SECONDS)
+  ) */
+  // val isrExpandRate = newMeter("IsrExpandsPerSec",  "expands", TimeUnit.SECONDS)
+  // val isrShrinkRate = newMeter("ISRShrinksPerSec",  "shrinks", TimeUnit.SECONDS)
 
 
   def startHighWaterMarksCheckPointThread() = {

@@ -23,8 +23,8 @@ import java.util.concurrent.TimeUnit
 import kafka.common.ClientIdAndBroker
 
 class FetchRequestAndResponseMetrics(metricId: ClientIdAndBroker) extends KafkaMetricsGroup {
-  val requestTimer = new KafkaTimer(newTimer(metricId + "FetchRequestRateAndTimeMs", TimeUnit.MILLISECONDS, TimeUnit.SECONDS))
-  val requestSizeHist = newHistogram(metricId + "FetchResponseSize")
+  // val requestTimer = new KafkaTimer(newTimer(metricId + "FetchRequestRateAndTimeMs", TimeUnit.MILLISECONDS, TimeUnit.SECONDS))
+  // val requestSizeHist = newHistogram(metricId + "FetchResponseSize")
 }
 
 /**
@@ -50,9 +50,9 @@ object FetchRequestAndResponseStatsRegistry {
   private val valueFactory = (k: String) => new FetchRequestAndResponseStats(k)
   private val globalStats = new Pool[String, FetchRequestAndResponseStats](Some(valueFactory))
 
-  def getFetchRequestAndResponseStats(clientId: String) = {
-    globalStats.getAndMaybePut(clientId)
-  }
+  //def getFetchRequestAndResponseStats(clientId: String) = {
+    // globalStats.getAndMaybePut(clientId)
+  //}
 }
 
 

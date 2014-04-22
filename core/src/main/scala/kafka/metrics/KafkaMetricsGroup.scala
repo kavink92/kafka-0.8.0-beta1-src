@@ -39,16 +39,16 @@ trait KafkaMetricsGroup extends Logging {
     new MetricName(pkg, simpleName, name)
   }
 
-  def newGauge[T](name: String, metric: Gauge[T]) =
-    Metrics.defaultRegistry().newGauge(metricName(name), metric)
+  //def newGauge[T](name: String, metric: Gauge[T]) =
+  //  Metrics.defaultRegistry().newGauge(metricName(name), metric)
 
-  def newMeter(name: String, eventType: String, timeUnit: TimeUnit) =
-    Metrics.defaultRegistry().newMeter(metricName(name), eventType, timeUnit)
+  //def newMeter(name: String, eventType: String, timeUnit: TimeUnit) =
+  //  Metrics.defaultRegistry().newMeter(metricName(name), eventType, timeUnit)
 
-  def newHistogram(name: String, biased: Boolean = true) =
-    Metrics.defaultRegistry().newHistogram(metricName(name), biased)
+  //def newHistogram(name: String, biased: Boolean = true) =
+  //  Metrics.defaultRegistry().newHistogram(metricName(name), biased)
 
-  def newTimer(name: String, durationUnit: TimeUnit, rateUnit: TimeUnit) =
-    Metrics.defaultRegistry().newTimer(metricName(name), durationUnit, rateUnit)
+  //def newTimer(name: String, durationUnit: TimeUnit, rateUnit: TimeUnit) =
+  //  Metrics.defaultRegistry().newTimer(metricName(name), durationUnit, rateUnit)
 
 }

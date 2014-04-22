@@ -161,9 +161,9 @@ class FileMessageSet private[kafka](val file: File,
    * Commit all written data to the physical disk
    */
   def flush() = {
-    LogFlushStats.logFlushTimer.time {
-      channel.force(true)
-    }
+    //LogFlushStats.logFlushTimer.time {
+    //  channel.force(true)
+    //}
   }
   
   /**
@@ -198,5 +198,5 @@ class FileMessageSet private[kafka](val file: File,
 }
 
 object LogFlushStats extends KafkaMetricsGroup {
-  val logFlushTimer = new KafkaTimer(newTimer("LogFlushRateAndTimeMs", TimeUnit.MILLISECONDS, TimeUnit.SECONDS))
+  // val logFlushTimer = new KafkaTimer(newTimer("LogFlushRateAndTimeMs", TimeUnit.MILLISECONDS, TimeUnit.SECONDS))
 }

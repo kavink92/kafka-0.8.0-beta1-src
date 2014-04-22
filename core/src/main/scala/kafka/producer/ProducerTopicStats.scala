@@ -24,9 +24,9 @@ import java.util.concurrent.TimeUnit
 
 @threadsafe
 class ProducerTopicMetrics(metricId: ClientIdAndTopic) extends KafkaMetricsGroup {
-  val messageRate = newMeter(metricId + "MessagesPerSec", "messages", TimeUnit.SECONDS)
-  val byteRate = newMeter(metricId + "BytesPerSec", "bytes", TimeUnit.SECONDS)
-  val droppedMessageRate = newMeter(metricId + "DroppedMessagesPerSec", "drops", TimeUnit.SECONDS)
+  // val messageRate = newMeter(metricId + "MessagesPerSec", "messages", TimeUnit.SECONDS)
+  // val byteRate = newMeter(metricId + "BytesPerSec", "bytes", TimeUnit.SECONDS)
+  // val droppedMessageRate = newMeter(metricId + "DroppedMessagesPerSec", "drops", TimeUnit.SECONDS)
 }
 
 /**

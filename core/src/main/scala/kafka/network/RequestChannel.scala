@@ -71,12 +71,12 @@ object RequestChannel extends Logging {
                             RequestMetrics.metricsMap(RequestMetrics.consumerFetchMetricName) )
       }
       metricsList.foreach{
-        m => m.requestRate.mark()
-             m.queueTimeHist.update(queueTime)
-             m.localTimeHist.update(apiLocalTime)
-             m.remoteTimeHist.update(apiRemoteTime)
-             m.responseSendTimeHist.update(responseSendTime)
-             m.totalTimeHist.update(totalTime)
+        m => // m.requestRate.mark()
+             //m.queueTimeHist.update(queueTime)
+             //m.localTimeHist.update(apiLocalTime)
+             //m.remoteTimeHist.update(apiRemoteTime)
+             //m.responseSendTimeHist.update(responseSendTime)
+             //m.totalTimeHist.update(totalTime)
       }
       if(requestLogger.isTraceEnabled)
         requestLogger.trace("Completed request:%s from client %s;totalTime:%d,queueTime:%d,localTime:%d,remoteTime:%d,sendTime:%d"
@@ -99,20 +99,20 @@ class RequestChannel(val numProcessors: Int, val queueSize: Int) extends KafkaMe
   for(i <- 0 until numProcessors)
     responseQueues(i) = new LinkedBlockingQueue[RequestChannel.Response]()
 
-  newGauge(
+  /*newGauge(
     "RequestQueueSize",
     new Gauge[Int] {
       def value = requestQueue.size
     }
-  )
+  ) */
 
   for(i <- 0 until numProcessors) {
-    newGauge(
+    /*newGauge(
       "Processor-" + i + "-ResponseQueueSize",
       new Gauge[Int] {
         def value = responseQueues(i).size()
       }
-    )
+    ) */
   }
 
   /** Send a request to be handled, potentially blocking until there is room in the queue for the request */
@@ -153,15 +153,15 @@ object RequestMetrics {
 }
 
 class RequestMetrics(name: String) extends KafkaMetricsGroup {
-  val requestRate = newMeter(name + "-RequestsPerSec",  "requests", TimeUnit.SECONDS)
+  // val requestRate = newMeter(name + "-RequestsPerSec",  "requests", TimeUnit.SECONDS)
   // time a request spent in a request queue
-  val queueTimeHist = newHistogram(name + "-QueueTimeMs")
+  //val queueTimeHist = newHistogram(name + "-QueueTimeMs")
   // time a request takes to be processed at the local broker
-  val localTimeHist = newHistogram(name + "-LocalTimeMs")
+  //val localTimeHist = newHistogram(name + "-LocalTimeMs")
   // time a request takes to wait on remote brokers (only relevant to fetch and produce requests)
-  val remoteTimeHist = newHistogram(name + "-RemoteTimeMs")
+  //val remoteTimeHist = newHistogram(name + "-RemoteTimeMs")
   // time to send the response to the requester
-  val responseSendTimeHist = newHistogram(name + "-ResponseSendTimeMs")
-  val totalTimeHist = newHistogram(name + "-TotalTimeMs")
+  //val responseSendTimeHist = newHistogram(name + "-ResponseSendTimeMs")
+  //val totalTimeHist = newHistogram(name + "-TotalTimeMs")
 }
 

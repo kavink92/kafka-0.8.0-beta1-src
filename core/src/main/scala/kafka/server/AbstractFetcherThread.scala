@@ -103,7 +103,7 @@ abstract class AbstractFetcherThread(name: String, clientId: String, sourceBroke
           }
         }
     }
-    fetcherStats.requestRate.mark()
+    // fetcherStats.requestRate.mark()
 
     if (response != null) {
       // process fetched data
@@ -126,7 +126,7 @@ abstract class AbstractFetcherThread(name: String, clientId: String, sourceBroke
                     }
                     partitionMap.put(topicAndPartition, newOffset)
                     fetcherLagStats.getFetcherLagStats(topic, partitionId).lag = partitionData.hw - newOffset
-                    fetcherStats.byteRate.mark(validBytes)
+                    // fetcherStats.byteRate.mark(validBytes)
                     // Once we hand off the partition data to the subclass, we can't mess with it any more in this thread
                     processPartitionData(topicAndPartition, currentOffset.get, partitionData)
                   } catch {
@@ -205,12 +205,12 @@ abstract class AbstractFetcherThread(name: String, clientId: String, sourceBroke
 
 class FetcherLagMetrics(metricId: ClientIdBrokerTopicPartition) extends KafkaMetricsGroup {
   private[this] var lagVal = new AtomicLong(-1L)
-  newGauge(
+  /*newGauge(
     metricId + "-ConsumerLag",
     new Gauge[Long] {
       def value = lagVal.get
     }
-  )
+  )*/
 
   def lag_=(newLag: Long) {
     lagVal.set(newLag)
@@ -229,8 +229,8 @@ class FetcherLagStats(metricId: ClientIdAndBroker) {
 }
 
 class FetcherStats(metricId: ClientIdAndBroker) extends KafkaMetricsGroup {
-  val requestRate = newMeter(metricId + "-RequestsPerSec", "requests", TimeUnit.SECONDS)
-  val byteRate = newMeter(metricId + "-BytesPerSec", "bytes", TimeUnit.SECONDS)
+  // val requestRate = newMeter(metricId + "-RequestsPerSec", "requests", TimeUnit.SECONDS)
+  // val byteRate = newMeter(metricId + "-BytesPerSec", "bytes", TimeUnit.SECONDS)
 }
 
 case class ClientIdBrokerTopicPartition(clientId: String, brokerInfo: String, topic: String, partitionId: Int) {

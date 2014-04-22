@@ -69,7 +69,7 @@ abstract class RequestPurgatory[T <: DelayedRequest, R](brokerId: Int = 0, purge
 
   private val requestCounter = new AtomicInteger(0)
 
-  newGauge(
+  /*newGauge(
     "PurgatorySize",
     new Gauge[Int] {
       def value = watchersForKey.values.map(_.numRequests).sum + expiredRequestReaper.numRequests
@@ -81,7 +81,7 @@ abstract class RequestPurgatory[T <: DelayedRequest, R](brokerId: Int = 0, purge
     new Gauge[Int] {
       def value = expiredRequestReaper.unsatisfied.get()
     }
-  )
+  ) */
 
   /* background thread expiring requests that have been waiting too long */
   private val expiredRequestReaper = new ExpiredRequestReaper

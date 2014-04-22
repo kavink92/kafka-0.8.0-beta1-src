@@ -34,10 +34,10 @@ class ProducerSendThread[K,V](val threadName: String,
   private val shutdownLatch = new CountDownLatch(1)
   private val shutdownCommand = new KeyedMessage[K,V]("shutdown", null.asInstanceOf[K], null.asInstanceOf[V])
 
-  newGauge(clientId + "-ProducerQueueSize",
+  /*newGauge(clientId + "-ProducerQueueSize",
           new Gauge[Int] {
             def value = queue.size
-          })
+          }) */
 
   override def run {
     try {

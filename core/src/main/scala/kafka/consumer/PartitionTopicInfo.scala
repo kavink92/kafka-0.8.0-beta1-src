@@ -60,8 +60,8 @@ class PartitionTopicInfo(val topic: String,
       chunkQueue.put(new FetchedDataChunk(messages, this, fetchedOffset.get))
       fetchedOffset.set(next)
       debug("updated fetch offset of (%s) to %d".format(this, next))
-      consumerTopicStats.getConsumerTopicStats(topic).byteRate.mark(size)
-      consumerTopicStats.getConsumerAllTopicStats().byteRate.mark(size)
+      // consumerTopicStats.getConsumerTopicStats(topic).byteRate.mark(size)
+      // consumerTopicStats.getConsumerAllTopicStats().byteRate.mark(size)
     }
   }
   

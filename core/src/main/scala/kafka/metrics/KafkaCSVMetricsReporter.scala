@@ -20,7 +20,7 @@
 
 package kafka.metrics
 
-import com.yammer.metrics.Metrics
+// import com.yammer.metrics.Metrics
 import java.io.File
 import com.yammer.metrics.reporting.CsvReporter
 import java.util.concurrent.TimeUnit
@@ -35,7 +35,7 @@ private class KafkaCSVMetricsReporter extends KafkaMetricsReporter
                               with Logging {
 
   private var csvDir: File = null
-  private var underlying: CsvReporter = null
+  // private var underlying: CsvReporter = null
   private var running = false
   private var initialized = false
 
@@ -50,7 +50,7 @@ private class KafkaCSVMetricsReporter extends KafkaMetricsReporter
         csvDir = new File(props.getString("kafka.csv.metrics.dir", "kafka_metrics"))
         Utils.rm(csvDir)
         csvDir.mkdirs()
-        underlying = new CsvReporter(Metrics.defaultRegistry(), csvDir)
+        // underlying = new CsvReporter(Metrics.defaultRegistry(), csvDir)
         if (props.getBoolean("kafka.csv.metrics.reporter.enabled", default = false)) {
           initialized = true
           startReporter(metricsConfig.pollingIntervalSecs)
@@ -63,7 +63,7 @@ private class KafkaCSVMetricsReporter extends KafkaMetricsReporter
   override def startReporter(pollingPeriodSecs: Long) {
     synchronized {
       if (initialized && !running) {
-        underlying.start(pollingPeriodSecs, TimeUnit.SECONDS)
+        // underlying.start(pollingPeriodSecs, TimeUnit.SECONDS)
         running = true
         info("Started Kafka CSV metrics reporter with polling period %d seconds".format(pollingPeriodSecs))
       }
@@ -74,10 +74,10 @@ private class KafkaCSVMetricsReporter extends KafkaMetricsReporter
   override def stopReporter() {
     synchronized {
       if (initialized && running) {
-        underlying.shutdown()
+        // underlying.shutdown()
         running = false
         info("Stopped Kafka CSV metrics reporter")
-        underlying = new CsvReporter(Metrics.defaultRegistry(), csvDir)
+        // underlying = new CsvReporter(Metrics.defaultRegistry(), csvDir)
       }
     }
   }

@@ -129,11 +129,11 @@ private[kafka] class Log(val dir: File,
   
   info("Completed load of log %s with log end offset %d".format(name, logEndOffset))
 
-  newGauge(name + "-" + "NumLogSegments",
+  /*newGauge(name + "-" + "NumLogSegments",
            new Gauge[Int] { def value = numberOfSegments })
 
   newGauge(name + "-" + "LogEndOffset",
-           new Gauge[Long] { def value = logEndOffset })
+           new Gauge[Long] { def value = logEndOffset }) */
 
   /* The name of this log */
   def name  = dir.getName()
@@ -307,8 +307,8 @@ private[kafka] class Log(val dir: File,
               }
               val assignedLastOffset = offsetCounter.get - 1
               val numMessages = assignedLastOffset - firstOffset + 1
-              BrokerTopicStats.getBrokerTopicStats(topicName).messagesInRate.mark(numMessages)
-              BrokerTopicStats.getBrokerAllTopicsStats.messagesInRate.mark(numMessages)
+              // BrokerTopicStats.getBrokerTopicStats(topicName).messagesInRate.mark(numMessages)
+              // BrokerTopicStats.getBrokerAllTopicsStats.messagesInRate.mark(numMessages)
               assignedLastOffset
             } else {
               require(messageSetInfo.offsetsMonotonic, "Out of order offsets found in " + messages)

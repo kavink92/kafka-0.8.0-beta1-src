@@ -58,14 +58,14 @@ class Partition(val topic: String,
 
   private def isReplicaLocal(replicaId: Int) : Boolean = (replicaId == localBrokerId)
 
-  newGauge(
+  /*newGauge(
     topic + "-" + partitionId + "-UnderReplicated",
     new Gauge[Int] {
       def value = {
         if (isUnderReplicated) 1 else 0
       }
     }
-  )
+  )*/
 
   def isUnderReplicated(): Boolean = {
     leaderIsrUpdateLock synchronized {
@@ -232,7 +232,7 @@ class Partition(val topic: String,
                  .format(topic, partitionId, inSyncReplicas.map(_.brokerId).mkString(","), newInSyncReplicas.map(_.brokerId).mkString(",")))
             // update ISR in ZK and cache
             updateIsr(newInSyncReplicas)
-            replicaManager.isrExpandRate.mark()
+            // replicaManager.isrExpandRate.mark()
           }
           maybeIncrementLeaderHW(leaderReplica)
         case None => // nothing to do if no longer leader
@@ -298,7 +298,7 @@ class Partition(val topic: String,
             updateIsr(newInSyncReplicas)
             // we may need to increment high watermark since ISR could be down to 1
             maybeIncrementLeaderHW(leaderReplica)
-            replicaManager.isrShrinkRate.mark()
+            // replicaManager.isrShrinkRate.mark()
           }
         case None => // do nothing if no longer leader
       }

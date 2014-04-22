@@ -49,8 +49,8 @@ class ConsumerIterator[K, V](private val channel: BlockingQueue[FetchedDataChunk
     currentTopicInfo.resetConsumeOffset(consumedOffset)
     val topic = currentTopicInfo.topic
     trace("Setting %s consumed offset to %d".format(topic, consumedOffset))
-    consumerTopicStats.getConsumerTopicStats(topic).messageRate.mark()
-    consumerTopicStats.getConsumerAllTopicStats().messageRate.mark()
+    // consumerTopicStats.getConsumerTopicStats(topic).messageRate.mark()
+    // consumerTopicStats.getConsumerAllTopicStats().messageRate.mark()
     item
   }
 

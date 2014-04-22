@@ -70,6 +70,7 @@ class DefaultEventHandler[K,V](config: ProducerConfig,
           topicMetadataToRefresh.clear
           lastTopicMetadataRefreshTime = SystemTime.milliseconds
         }
+
         outstandingProduceRequests = dispatchSerializedData(outstandingProduceRequests)
         if (outstandingProduceRequests.size > 0) {
           info("Back off for %d ms before retrying send. Remaining retries = %d".format(config.retryBackoffMs, remainingRetries-1))
@@ -81,6 +82,7 @@ class DefaultEventHandler[K,V](config: ProducerConfig,
           // producerStats.resendRate.mark()
         }
       }
+        
       if(outstandingProduceRequests.size > 0) {
        // producerStats.failedSendRate.mark()
         val correlationIdEnd = correlationId.get()
